@@ -1,0 +1,19 @@
+{
+  "name": "covid-pt-predict",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "papaparse": "^5.1.1"
+  },
+  "devDependencies": {
+    "brfs": "^2.0.2",
+    "browserify": "^16.5.0",
+    "browserify-fs": "^1.0.0"
+  }
+}

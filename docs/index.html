@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <title>Ainda há Covid-19 amanhã?</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="container">
+        <div id="header" class="row" style="color: #FFFFFF; padding-top: 5em;">
+            <h1>Ainda há Covid-19 amanhã?
+                <p style="font-size: 16px; font-weight: 400; color: #455D7A;">(Sim. Fica em casa.)</p>
+            </h1>
+            
+        </div>
+        
+        <div class="row" style="padding-top: 1em;">
+            <canvas id="chart" width="800" height="400"></canvas>
+        </div>
+        
+        <div id="footer" class="row">
+            <div class="one-half column">
+                <h5 style="font-weight: 700;">N<sub>d+1</sub> = (1 + E*p) N<sub>d</sub></h5>
+                <p style="margin-top: -1em; color: #455D7A; line-height: 1.25em;">
+                    <span style="color: #FFFFFF">E</span> = número médio diário de interações de uma pessoa infetada.<br>
+                    <span style="color: #FFFFFF">p</span> = probabilidade de cada interação gerar uma infeção.
+                </p>
+                <p style="color: #455D7A; line-height: 1.25em;">
+                    Esta previsão tem como base o fator (1 + E*p) de
+                    <span id="ep_factor_value" style="color: #FFFFFF"></span>, calculado no dia
+                    <span id="ep_factor_day" style="color: #FFFFFF"></span>.
+                </p>
+            </div>
+            <div class="one-half column">
+                <h5 style="font-weight: 700;">Sobre</h5>
+                <p style="margin-top: -1em; color: #455D7A; line-height: 1.25em;">
+                    Cálculos com base no vídeo: 
+                    <a href="https://www.youtube.com/watch?v=Kas0tIxDvrg">Exponential growth and epidemics de 3Blue1Brown</a>.
+                    Fonte dos dados: <a href="https://github.com/dssg-pt/covid19pt-data">dssg-pt/covid19pt-data</a>.<br>
+                </p>
+                <p style="color: #455D7A; line-height: 1.25em;">
+                    Feito no 7º dia de quarentena pelo <a href="https://github.com/aquelemiguel">Miguel</a>.<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/chartjs/chartjs-plugin-annotation/master/chartjs-plugin-annotation.js"></script>
+    <script type="text/javascript" charset="utf-8" src="bundle.js"></script>
+</body>
+
+</html>
+

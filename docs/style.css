@@ -1,0 +1,31 @@
+body {
+    background: #121212;
+    font-family: 'Sen', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4em;
+    color: white;
+    font-weight: 700;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+a {
+    color: #FFFFFF; 
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F95959;
+}
+
+#footer {
+    color: white;
+    padding-top: 3em;
+    font-weight: 400;
+}

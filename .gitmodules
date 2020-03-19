@@ -1,0 +1,3 @@
+[submodule "covid19pt-data"]
+	path = covid19pt-data
+	url = https://github.com/dssg-pt/covid19pt-data
