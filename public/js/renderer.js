@@ -97,14 +97,21 @@ data = data.slice(6, data.length - 1);
 
 const infections = data.map(arr => parseInt(arr[2]));
 
-const infectionRate = infections.map((_, i) => {
+let infectionRate = infections.map((_, i) => {
     return i !== infections.length - 1 ? infections.slice(i, i+2).reduce((a, b) => {
         return Number(Math.round((1 + (b-a) / a) + 'e2') + 'e-2');
     }) : null;
 });
 
-const prediction = infections.map((_, i) => {
-    return i !== 0 ? Math.round(infectionRate[i-1] * infections[i]) : null;
+const DAYS_FOR_AVERAGING = 2;
+console.log(infectionRate)
+infectionRate = infections.map((_, i) => infectionRate.slice(i-DAYS_FOR_AVERAGING, i).reduce((a, b) => a + b, 0));
+infectionRate = infectionRate.map(a => Math.round(a/DAYS_FOR_AVERAGING * 1000) / 1000);
+infectionRate = infectionRate.map(a => a == 0 ? null : a);
+console.log(infectionRate)
+
+const prediction = infectionRate.map((e, i) => {
+    return e !== null ? Math.round(e * infections[i]) : null;
 });
 
 prediction.unshift(null);
@@ -117,7 +124,7 @@ const labels = Array.apply(null, Array(infections.length + 6)).map((e, i) => {
     return `${tomorrow.getDate()}/${tomorrow.getMonth() + 1}`;
 });
 
-document.getElementById('ep_factor_value').innerHTML = `${infectionRate[Math.round(infectionRate.length - 2)]}`;
+document.getElementById('ep_factor_value').innerHTML = `${infectionRate[Math.round(infectionRate.length - 1)]}`;
 document.getElementById('ep_factor_day').innerHTML = labels[infections.length - 1]
 
 graph(infections, prediction, labels);
