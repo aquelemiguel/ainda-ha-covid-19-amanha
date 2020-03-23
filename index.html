@@ -16,10 +16,22 @@
             <h1>Ainda há Covid-19 amanhã?
                 <p style="font-size: 16px; font-weight: 400; color: #455D7A;">(Sim. Fica em casa.)</p>
             </h1>
-            
         </div>
         
-        <div class="row" style="padding-top: 1em;">
+        <div align="right" style="margin-bottom: -2em;" class="row">
+            <select id="region">
+                <option value="Geral">Geral</option>
+                <option value="Norte">Norte</option>
+                <option value="Centro">Centro</option>
+                <option value="Lisboa e Vale do Tejo">Lisboa e Vale do Tejo</option>
+                <option value="Alentejo">Alentejo</option>
+                <option value="Algarve">Algarve</option>
+                <option value="Açores">Açores</option>
+                <option value="Madeira">Madeira</option>
+            </select>
+        </div>
+
+        <div class="row">
             <canvas id="chart" width="800" height="400"></canvas>
         </div>
         

@@ -29,3 +29,19 @@ a:hover {
     padding-top: 3em;
     font-weight: 400;
 }
+
+select {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 12px;
+}
+
+select:focus {
+    border-color: #121212;
+}
+
+select option {
+    background: #121212;
+    color: white;
+}
