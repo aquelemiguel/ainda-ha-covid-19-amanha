@@ -100,7 +100,7 @@ let infectionRate = infections.map((_, i) => {
     }) : null;
 });
 
-const DAYS_FOR_AVERAGING = 2;
+const DAYS_FOR_AVERAGING = 3;
 console.log(infectionRate)
 infectionRate = infections.map((_, i) => infectionRate.slice(i-DAYS_FOR_AVERAGING, i).reduce((a, b) => a + b, 0));
 infectionRate = infectionRate.map(a => Math.round(a/DAYS_FOR_AVERAGING * 1000) / 1000);
