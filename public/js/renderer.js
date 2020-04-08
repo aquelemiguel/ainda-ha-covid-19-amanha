@@ -91,7 +91,7 @@ const graph = (ctx, infections, prediction, labels) => {
 let raw_data = fs.readFileSync('covid19pt-data/data.csv', 'utf-8');
 let data = papa.parse(raw_data).data;
 
-data = data.slice(6, data.length - 1);
+data = data.slice(6, data.length);
 let infections = data.map(arr => parseInt(arr[2]));
 
 let infectionRate = infections.map((_, i) => {
