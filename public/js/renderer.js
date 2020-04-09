@@ -91,8 +91,10 @@ const graph = (ctx, infections, prediction, labels) => {
 let raw_data = fs.readFileSync('covid19pt-data/data.csv', 'utf-8');
 let data = papa.parse(raw_data).data;
 
-data = data.slice(6, data.length);
+data = data.slice(6, data.length - 1);
 let infections = data.map(arr => parseInt(arr[2]));
+
+console.log(infections)
 
 let infectionRate = infections.map((_, i) => {
     return i !== infections.length - 1 ? infections.slice(i, i+2).reduce((a, b) => {
@@ -101,11 +103,9 @@ let infectionRate = infections.map((_, i) => {
 });
 
 const DAYS_FOR_AVERAGING = 3;
-console.log(infectionRate)
 infectionRate = infections.map((_, i) => infectionRate.slice(i-DAYS_FOR_AVERAGING, i).reduce((a, b) => a + b, 0));
 infectionRate = infectionRate.map(a => Math.round(a/DAYS_FOR_AVERAGING * 1000) / 1000);
 infectionRate = infectionRate.map(a => a == 0 ? null : a);
-console.log(infectionRate)
 
 const prediction = infectionRate.map((e, i) => {
     return e !== null ? Math.round(e * infections[i]) : null;
@@ -121,7 +121,7 @@ const labels = Array.apply(null, Array(infections.length + 6)).map((e, i) => {
     return `${tomorrow.getDate()}/${tomorrow.getMonth() + 1}`;
 });
 
-document.getElementById('ep_factor_value').innerHTML = `${infectionRate[Math.round(infectionRate.length - 1)]}`;
+document.getElementById('ep_factor_value').innerHTML = `${infectionRate[Math.round(infectionRate.length - 1)].toFixed(2)}`;
 document.getElementById('ep_factor_day').innerHTML = labels[infections.length - 1]
 
 var ctx = document.getElementById('chart').getContext('2d');
