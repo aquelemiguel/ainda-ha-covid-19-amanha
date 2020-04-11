@@ -44,8 +44,23 @@ const graph = (ctx, infections, prediction, labels) => {
                             enabled: true,
                             fontFamily: 'Sen',
                             backgroundColor: '#233142',
-                            position: 'top',
-                            yAdjust: 30
+                            position: 'middle'
+                        },
+                    },
+                    {
+                        type: "line",
+                        mode: "vertical",
+                        scaleID: "x-axis-0",
+                        value: 43,
+                        borderColor: "#455D7A",
+                        borderWidth: 3,
+                        borderDash: [3, 3],
+                        label: {
+                            content: "DGS prevê pico",
+                            enabled: true,
+                            fontFamily: 'Sen',
+                            backgroundColor: '#233142',
+                            position: 'middle'
                         }
                     }
                 ]
