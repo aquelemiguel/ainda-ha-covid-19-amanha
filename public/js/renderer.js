@@ -44,7 +44,8 @@ const graph = (ctx, infections, prediction, labels) => {
                             enabled: true,
                             fontFamily: 'Sen',
                             backgroundColor: '#233142',
-                            position: 'middle'
+                            yAdjust: 50,
+                            position: 'top'
                         },
                     },
                     {
@@ -60,7 +61,25 @@ const graph = (ctx, infections, prediction, labels) => {
                             enabled: true,
                             fontFamily: 'Sen',
                             backgroundColor: '#233142',
-                            position: 'middle'
+                            yAdjust: 50,
+                            position: 'bottom'
+                        }
+                    },
+                    {
+                        type: "line",
+                        mode: "vertical",
+                        scaleID: "x-axis-0",
+                        value: 62,
+                        borderColor: "#455D7A",
+                        borderWidth: 3,
+                        borderDash: [3, 3],
+                        label: {
+                            content: "Estado de calamidade",
+                            enabled: true,
+                            fontFamily: 'Sen',
+                            backgroundColor: '#233142',
+                            yAdjust: 50,
+                            position: 'bottom'
                         }
                     }
                 ]
